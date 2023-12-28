@@ -1,0 +1,19 @@
+{% extends 'first_slot/main.html' %}
+
+{% block title %}Models{% endblock title %}
+
+{% block content %}
+	<div class="flex p-10 w-full h-200">
+		<img class="w-1/3" src="{{ kiu.images.url }}" alt="itemPhoto">
+		<div class="w-2/3 text-xl ml-10 mt-5">
+			<p class="mt-2">{{ kiu.name }}</p>
+			<p class="mt-2 text-green-500">{{ kiu.price }}</p>
+			<p class="mt-2 text-gray-500">{{ kiu.description }}</p>
+			<p class="mt-2 text-gray-500"><a href="{% url 'users:profil' kiu.seller.id %}">{{ kiu.seller }}</a></p>
+			<p class="mt-2 text-gray-500">{{ kiu.seller.profile.contact_number }}</p>
+			<button class= "bg-green-500 text-white-200 mt-4" ><a href="{% url 'first_slot:update_item' kiu.id %}">Update Item</button>
+			<button class= "bg-red-500 text-black-200 mt-4" ><a href="{% url 'first_slot:delete_item' kiu.id %}">Delete Item</button>
+		</div>
+	</div>
+
+{% endblock %}
